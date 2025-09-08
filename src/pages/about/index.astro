@@ -1,0 +1,45 @@
+---
+import PageLayout from '@/layouts/CommonPage.astro'
+
+const headings = [
+  { depth: 2, slug: 'hobbies', text: 'Hobbies' },
+  { depth: 2, slug: 'env', text: 'env' }
+]
+---
+
+<PageLayout title='About' {headings}>
+  <p>Corporate-IT, Software/System &amp; Server-Side Engineer.</p>
+  <p><strong>PURPOSE:</strong> To use technology to eliminate the word “worry” from the dictionary of people's lives.</p>
+  <p><strong>LIVES:</strong> Yokohama, Kanagawa</p>
+  <p><strong>PHILOSOPHY:</strong> Emphasizing the joy of encountering ideas that transcend one's own thinking through teamwork.</p>
+
+  {/* general-talk */}
+  <h2 id='hobbies'>Hobbies</h2>
+  <p>
+    I enjoy reading, watching movies, and listening to music. I’m particularly passionate about club
+    music, especially genres like UK Garage, UK Hardcore, UK Bass, Rhythm &amp; Blues (R&amp;B), and Drum &amp; Bass (DnB).
+    I’m always open to exploring new sounds and experiences. I keep track of my music listening habits on
+    Last.fm, where I log my favorite tracks and discover new artists.
+  </p>
+  <p>As for movies, I’m a fan of works by Christopher Nolan and enjoy films that challenge conventional storytelling.</p>
+
+  {/* env */}
+  <h2 id='env'>env</h2>
+  <pre class='text-xs sm:text-sm overflow-x-auto'><code>OS: Windows 11 Home x86_64
+CPU: AMD Ryzen 9 9900X (24) @ 5.65 GHz
+GPU 1: NVIDIA Virtual Desktop Monitor (15.52 GiB) [Discrete]
+GPU 2: NVIDIA GeForce RTX 5080 (15.52 GiB) [Discrete]
+GPU 3: AMD Radeon(TM) Graphics (1.97 GiB) [Discrete]
+Memory: 19.81 GiB / 61.58 GiB (32%)
+Swap: 0 B / 3.88 GiB (0%)</code></pre>
+
+  <pre class='text-xs sm:text-sm overflow-x-auto'><code>OS: macOS Sequoia 15.5 arm64
+CPU: Apple M3 (8) @ 4.06 GHz
+GPU: Apple M3 (10) @ 1.34 GHz [Integrated]
+Memory: 6.08 GiB / 16.00 GiB (38%)
+Swap: 634.06 MiB / 2.00 GiB (31%)</code></pre>
+
+  
+
+  
+</PageLayout>

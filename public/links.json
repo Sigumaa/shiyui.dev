@@ -1,0 +1,81 @@
+{
+  "friends": [
+    {
+      "id_name": "cf-links",
+      "desc": "Frequently used links",
+      "link_list": []
+    },
+    {
+      "id_name": "inactive-links",
+      "desc": "Inactive or rule-breaking friends",
+      "link_list": []
+    },
+    {
+      "id_name": "special-links",
+      "desc": "Other special links",
+      "link_list": [
+        
+        {
+          "name": "X (main)",
+          "intro": "@shiii_i_",
+          "link": "https://x.com/shiii_i_",
+          "avatar": "https://cdn.simpleicons.org/x/000000"
+        },
+        {
+          "name": "X (sub)",
+          "intro": "@sushiii_i_",
+          "link": "https://x.com/sushiii_i_",
+          "avatar": "https://cdn.simpleicons.org/x/000000"
+        },
+        {
+          "name": "X (sub)",
+          "intro": "@NnwlX",
+          "link": "https://x.com/NnwlX",
+          "avatar": "https://cdn.simpleicons.org/x/000000"
+        },
+        {
+          "name": "X (sub)",
+          "intro": "@love_alco_hol",
+          "link": "https://x.com/love_alco_hol",
+          "avatar": "https://cdn.simpleicons.org/x/000000"
+        },
+        {
+          "name": "VRChat",
+          "intro": "VRChat Profile",
+          "link": "https://vrchat.com/home/user/usr_34efacfd-efcf-456c-a5e8-6685a4994153",
+          "avatar": "https://cdn.simpleicons.org/vrchat/000000"
+        },
+        {
+          "name": "Last.fm",
+          "intro": "shiyui",
+          "link": "https://www.last.fm/ja/user/shiyui",
+          "avatar": "https://cdn.simpleicons.org/lastdotfm/C3000D"
+        },
+        {
+          "name": "Steam",
+          "intro": "sushiyui",
+          "link": "https://steamcommunity.com/id/sushiyui/",
+          "avatar": "https://cdn.simpleicons.org/steam/1B2838"
+        },
+        {
+          "name": "GitHub",
+          "intro": "Sigumaa",
+          "link": "https://github.com/Sigumaa",
+          "avatar": "https://cdn.simpleicons.org/github/181717"
+        },
+        {
+          "name": "Qiita",
+          "intro": "@Siguma",
+          "link": "https://qiita.com/Siguma",
+          "avatar": "https://cdn.simpleicons.org/qiita/55C500"
+        },
+        {
+          "name": "Zenn",
+          "intro": "@shiyui",
+          "link": "https://zenn.dev/shiyui",
+          "avatar": "https://cdn.simpleicons.org/zenn/3EA8FF"
+        }
+      ]
+    }
+  ]
+}

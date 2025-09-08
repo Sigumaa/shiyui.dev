@@ -1,0 +1,21 @@
+---
+import links from 'public/links.json'
+import PageLayout from '@/layouts/CommonPage.astro'
+import FriendList from '@/components/links/FriendList.astro'
+
+const headings = [
+  { depth: 2, slug: 'common-links', text: 'よく使うリンク' },
+  { depth: 2, slug: 'special-links', text: 'ソーシャル' }
+]
+
+const { friends } = links
+---
+
+<PageLayout title='Links' {headings}>
+  <p>よく使うリンクとSNSをまとめています。</p>
+  <h2 id='common-links'>よく使うリンク</h2>
+  <FriendList list={friends[0]} />
+  <h2 id='special-links'>ソーシャル</h2>
+  <FriendList list={friends[2]} />
+</PageLayout>
+

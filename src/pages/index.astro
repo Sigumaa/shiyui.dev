@@ -1,0 +1,128 @@
+---
+import { Image } from 'astro:assets'
+
+import { PostPreview } from 'astro-pure/components/pages'
+import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
+import { Button, Icon, Label } from 'astro-pure/user'
+import CareerTimeline from '@/components/home/CareerTimeline.astro'
+import PageLayout from '@/layouts/BaseLayout.astro'
+import Section from '@/components/home/Section.astro'
+import SkillLayout from '@/components/home/SkillLayout.astro'
+import avatar from '@/assets/avatar.jpg'
+import config from '@/site-config'
+
+const languages = ['Go', 'Python', 'Rust', 'C++', 'Dart', 'CMake', 'TypeScript', 'HTML']
+const frontend = ['Astro', 'TypeScript']
+const backend = ['Go', 'Rust']
+
+const MAX_POSTS = 10
+const allPosts = await getBlogCollection()
+const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
+
+const careerEvents = [
+  { date: '', year: '2020', month: '08', content: 'OPEN HACK U 2020' },
+  { date: '', year: '2021', month: '03', content: 'サポーターズハッカソン' },
+  { date: '', year: '2021', month: '09', content: '技育展 2021 登壇' },
+  { date: '', year: '2021', month: '12', content: 'OPEN HACK U 2021' },
+  { date: '', year: '2022', month: '09', content: '技育展 2022 登壇' },
+  { date: '', year: '2023', month: '08', content: 'Kloud Hackathon #3' },
+  // 2024/02 の出来事（複数）
+  { date: '', year: '2024', month: '02', content: '個人事業主' },
+  { date: '', year: '2024', month: '02', content: 'C-Style Inc.（個人事業主として請負）' },
+  { date: '', year: '2024', month: '02', content: 'Interaction 2024 採択・発表' },
+  { date: '', year: '2024', month: '08', content: '都知事杯 Open Data Hackathon' },
+
+  // GAFA の F
+  { date: '', year: '2025', month: '04', content: ' [ #non-public information# ] Ltd.' }
+]
+---
+
+<PageLayout meta={{ title: 'Home' }} highlightColor='#659EB9'>
+  <main class='flex w-full flex-col items-center'>
+    <section class='animate mb-10 flex flex-col items-center gap-y-7' id='content-header'>
+      <Image
+        src={avatar}
+        alt='profile'
+        class='h-28 w-auto rounded-full border p-1'
+        loading='eager'
+      />
+
+      <div class='flex flex-col items-center gap-y-4'>
+        <h1 class='text-3xl font-bold'>{config.author}</h1>
+        <div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
+          <Label title='Japan'>
+            <Icon name='location' class='size-5' slot='icon' />
+          </Label>
+        </div>
+      </div>
+
+      {/* removed template link */}
+    </section>
+
+    <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
+      <Section title='About'>
+        <p class='text-muted-foreground'>しゆいです。</p>
+        <Button title='More about me' class='w-fit self-end' href='/about' variant='ahead' />
+      </Section>
+      {
+        allPostsByDate.length > 0 && (
+          <Section title='Posts'>
+            <ul class='flex flex-col gap-y-1.5 sm:gap-y-2'>
+              {allPostsByDate.map((p) => (
+                <li class='flex flex-col gap-x-2 sm:flex-row'>
+                  <PostPreview post={p} />
+                </li>
+              ))}
+            </ul>
+            <Button title='More posts' class='w-fit self-end' href='/blog' variant='ahead' />
+          </Section>
+        )
+      }
+
+      {
+        /* <Section title='Experience'>
+      <Card
+        heading='Lorem Ipsum'
+        subheading='Sit amet consectetur'
+        date='Dec 2022 - Nov 2023'
+        imagePath='/src/assets/about-astro.png'
+        altText='Lorem, ipsum dolor sit'
+        imageClass='h-12 w-auto md:-start-16'
+      >
+        <ul class='ms-4 list-disc text-muted-foreground'>
+          <li>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis recusandae, ut
+            molestiae laboriosam pariatur!
+
+            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, pariatur!</li>
+          </li>
+        </ul>
+      </Card>
+      <Card
+        heading='Lorem Ipsum'
+        subheading='Sit amet consectetur'
+        date='Dec 2022 - Nov 2023'
+        imagePath='/src/assets/about-astro.png'
+        altText='Lorem, ipsum dolor sit'
+        imageClass='h-12 w-auto md:-start-16'
+      />
+    </Section> */
+      }
+      
+
+      {/* Website List removed */}
+
+      {/* Certifications removed */}
+
+      <Section title='Skills'>
+        <SkillLayout title='Languages' skills={languages} />
+        <SkillLayout title='Frontend' skills={frontend} />
+        <SkillLayout title='Backend' skills={backend} />
+      </Section>
+      {/* Career timeline placed inside content container */}
+      <Section title='Career'>
+        <CareerTimeline events={careerEvents as any} />
+      </Section>
+    </div>
+  </main>
+</PageLayout>
