@@ -14,13 +14,11 @@ comment: false
 
 こんにちは、shiyui です。ポートフォリオ兼ブログを静的サイトとして作り直しました。
 
-Astro + astro-theme-pure で完全静的。検索は Pagefind、RSS と Sitemap も用意。
-デザインはシンプルに、コンテンツを読みやすいように、アクセシビリティも考慮しました。
+Astro + astro-theme-pure で完全静的。検索は Pagefind、RSS 用意。
+デザインはシンプルに、コンテンツを読みやすいように
 
 ## このサイトについて
 - 技術: Astro 5 / TypeScript / UnoCSS / Shiki / KaTeX。
-- 運用: npm ベース、静的ビルド（SSR なし）。
-- 文章: 日本語中心。タグで整理していきます。
 
 ## これから
 - 記事: 開発メモ、映画・音楽ログ、雑記など
