@@ -11,6 +11,15 @@ import SkillLayout from '@/components/home/SkillLayout.astro'
 import avatar from '@/assets/avatar.jpg'
 import config from '@/site-config'
 
+type CareerTimelineEvent = {
+  year: string
+  month?: string
+  content: string
+  tag?: string
+  note?: string
+  variant?: 'freelance' | 'contract' | 'fulltime'
+}
+
 const languages = ['Go', 'Python', 'Rust', 'C++', 'Dart', 'CMake', 'TypeScript', 'HTML']
 const frontend = ['Astro', 'TypeScript']
 const backend = ['Go', 'Rust']
@@ -19,7 +28,7 @@ const MAX_POSTS = 10
 const allPosts = await getBlogCollection()
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 
-const jobHistory = [
+const jobHistory: CareerTimelineEvent[] = [
   {
     year: '2024',
     month: '02',
@@ -46,7 +55,7 @@ const jobHistory = [
   }
 ]
 
-const eventHistory = [
+const eventHistory: CareerTimelineEvent[] = [
   { year: '2020', month: '08', content: 'OPEN HACK U 2020' },
   { year: '2021', month: '03', content: 'サポーターズハッカソン' },
   { year: '2021', month: '09', content: '技育展 2021 登壇' },
