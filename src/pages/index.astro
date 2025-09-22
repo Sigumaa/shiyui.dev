@@ -19,21 +19,42 @@ const MAX_POSTS = 10
 const allPosts = await getBlogCollection()
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 
-const careerEvents = [
-  { date: '', year: '2020', month: '08', content: 'OPEN HACK U 2020' },
-  { date: '', year: '2021', month: '03', content: 'サポーターズハッカソン' },
-  { date: '', year: '2021', month: '09', content: '技育展 2021 登壇' },
-  { date: '', year: '2021', month: '12', content: 'OPEN HACK U 2021' },
-  { date: '', year: '2022', month: '09', content: '技育展 2022 登壇' },
-  { date: '', year: '2023', month: '08', content: 'Kloud Hackathon #3' },
-  // 2024/02 の出来事（複数）
-  { date: '', year: '2024', month: '02', content: '個人事業主' },
-  { date: '', year: '2024', month: '02', content: '[ #non-public information# ] Inc.（個人事業主として請負）' },
-  { date: '', year: '2024', month: '02', content: 'Interaction 2024 採択・発表' },
-  { date: '', year: '2024', month: '08', content: '都知事杯 Open Data Hackathon' },
+const jobHistory = [
+  {
+    year: '2024',
+    month: '02',
+    content: '個人事業主',
+    tag: '個人事業主',
+    note: 'Web エンジニア / プロトタイピング',
+    variant: 'freelance'
+  },
+  {
+    year: '2024',
+    month: '02',
+    content: '[ #non-public information# ] Inc.',
+    tag: '業務委託',
+    note: '個人事業主として請負',
+    variant: 'contract'
+  },
+  {
+    year: '2025',
+    month: '04',
+    content: '[ #non-public information# ] Ltd.',
+    tag: '正社員',
+    note: 'DX・SX・AI 推進を担当',
+    variant: 'fulltime'
+  }
+]
 
-  // GAFA の F
-  { date: '', year: '2025', month: '04', content: ' [ #non-public information# ] Ltd.' }
+const eventHistory = [
+  { year: '2020', month: '08', content: 'OPEN HACK U 2020' },
+  { year: '2021', month: '03', content: 'サポーターズハッカソン' },
+  { year: '2021', month: '09', content: '技育展 2021 登壇' },
+  { year: '2021', month: '12', content: 'OPEN HACK U 2021' },
+  { year: '2022', month: '09', content: '技育展 2022 登壇' },
+  { year: '2023', month: '08', content: 'Kloud Hackathon #3' },
+  { year: '2024', month: '02', content: 'Interaction 2024 採択・発表' },
+  { year: '2024', month: '08', content: '都知事杯 Open Data Hackathon' }
 ]
 ---
 
@@ -119,10 +140,17 @@ const careerEvents = [
         <SkillLayout title='Frontend' skills={frontend} />
         <SkillLayout title='Backend' skills={backend} />
       </Section>
-      {/* Career timeline placed inside content container */}
-      <Section title='Career'>
-        <CareerTimeline events={careerEvents as any} />
-      </Section>
+      {/* Career timeline split into job and event histories */}
+      {jobHistory.length > 0 && (
+        <Section title='Job'>
+          <CareerTimeline events={jobHistory} />
+        </Section>
+      )}
+      {eventHistory.length > 0 && (
+        <Section title='Event'>
+          <CareerTimeline events={eventHistory} />
+        </Section>
+      )}
     </div>
   </main>
 </PageLayout>

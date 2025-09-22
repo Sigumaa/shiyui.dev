@@ -1,8 +1,13 @@
 ---
+type Variant = 'freelance' | 'contract' | 'fulltime'
+
 interface EventItem {
   year: string
-  month: string
+  month?: string
   content: string
+  tag?: string
+  note?: string
+  variant?: Variant
 }
 
 interface Props {
@@ -15,6 +20,18 @@ const { events, class: className } = Astro.props as Props
 // 年月をシンプルに1つのラベルへ（例: 2020.04）
 const formatYM = (y: string, m?: string) =>
   !m || m.trim() === '' ? y : `${y}.${m.padStart(2, '0')}`
+
+const badgeBaseClass =
+  'inline-flex items-center self-start rounded-full border px-3 py-0.5 text-xs font-semibold leading-tight'
+
+const variantClasses: Record<Variant | 'default', string> = {
+  freelance: 'border-emerald-400/60 bg-emerald-500/15 text-emerald-500',
+  contract: 'border-violet-400/60 bg-violet-500/15 text-violet-500',
+  fulltime: 'border-sky-400/60 bg-sky-500/15 text-sky-500',
+  default: 'border-border text-muted-foreground'
+}
+
+const metaClass = (variant?: Variant) => `${badgeBaseClass} ${variantClasses[variant ?? 'default']}`
 ---
 
 <div class={`animate ${className || ''}`}>
@@ -28,7 +45,15 @@ const formatYM = (y: string, m?: string) =>
         )}
         <div class='flex items-start gap-[4ch] text-muted-foreground'>
           <samp class='block py-1 text-sm font-mono'>{formatYM(e.year, e.month)}</samp>
-          <div set:text={e.content} />
+          <div class='flex flex-col gap-1 text-sm leading-relaxed'>
+            <span class='text-base font-semibold text-foreground'>{e.content}</span>
+            {(e.tag || e.note) && (
+              <div class='flex flex-wrap items-center gap-2 text-xs'>
+                {e.tag && <span class={metaClass(e.variant)}>{e.tag}</span>}
+                {e.note && <span class='text-muted-foreground'>{e.note}</span>}
+              </div>
+            )}
+          </div>
         </div>
       </li>
     ))}
