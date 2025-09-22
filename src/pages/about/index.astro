@@ -2,26 +2,51 @@
 import PageLayout from '@/layouts/CommonPage.astro'
 
 const headings = [
-  { depth: 2, slug: 'hobbies', text: 'Hobbies' },
+  { depth: 2, slug: 'intro', text: 'Intro' },
+  { depth: 2, slug: 'purpose', text: 'Purpose' },
+  { depth: 2, slug: 'philosophy', text: 'Philosophy' },
+  { depth: 2, slug: 'background', text: 'Background' },
+  { depth: 2, slug: 'work', text: 'Work' },
+  { depth: 2, slug: 'current-focus', text: 'Current Focus' },
   { depth: 2, slug: 'env', text: 'env' }
 ]
 ---
 
 <PageLayout title='About' {headings}>
-  <p>Corporate-IT, Software/System &amp; Server-Side Engineer.</p>
-  <p><strong>PURPOSE:</strong> To use technology to eliminate the word “worry” from the dictionary of people's lives.</p>
-  <p><strong>LIVES:</strong> Yokohama, Kanagawa</p>
-  <p><strong>PHILOSOPHY:</strong> Emphasizing the joy of encountering ideas that transcend one's own thinking through teamwork.</p>
+  <h2 id='intro'>Intro</h2>
+  <div class='space-y-4'>
+    <p>こんにちは。</p>
+    <p>インターネットでは、しゆい/しぐまとして生きています。</p>
+    <p>一応職種としてはCorporate-IT, Software/System &amp; Server-Side Engineerです。</p>
+  </div>
 
-  {/* general-talk */}
-  <h2 id='hobbies'>Hobbies</h2>
-  <p>
-    I enjoy reading, watching movies, and listening to music. I’m particularly passionate about club
-    music, especially genres like UK Garage, UK Hardcore, UK Bass, Rhythm &amp; Blues (R&amp;B), and Drum &amp; Bass (DnB).
-    I’m always open to exploring new sounds and experiences. I keep track of my music listening habits on
-    Last.fm, where I log my favorite tracks and discover new artists.
-  </p>
-  <p>As for movies, I’m a fan of works by Christopher Nolan and enjoy films that challenge conventional storytelling.</p>
+  <h2 id='purpose'>Purpose</h2>
+  <div class='space-y-4'>
+    <p>PURPOSE: To use technology to eliminate the word “worry” from the dictionary of people's lives.</p>
+    <p>会社の運動として自分のパーパスを掲げることを勧めていて、私は「技術を用いて、人々の生活の辞書から"悩み"という言葉をなくす」というパーパスを掲げています。臭いけど、まあこういうのは臭くてなんぼですよね。</p>
+  </div>
+
+  <h2 id='philosophy'>Philosophy</h2>
+  <div class='space-y-4'>
+    <p>PHILOSOPHY: Emphasizing the joy of encountering ideas that transcend one's own thinking through teamwork.</p>
+    <p>また、理念としては、「協働により、自分の思考を超える発想と出会う喜びを大切にする」というのがあります。一人でもいいですが、やはりいろんな人の考えを知るのはとてもたのしいです。</p>
+  </div>
+
+  <h2 id='background'>Background</h2>
+  <div class='space-y-4'>
+    <p>学生時代は情報系、、ではなく、電気電子を専攻していました。研究では主に制御工学とか、半導体とか、いろいろやってました。プログラミングは独学で、大体6年目。6年目なのに全然技術力は付随してなくて、激強な後輩を見るとひとり悲しくなってます。</p>
+  </div>
+
+  <h2 id='work'>Work</h2>
+  <div class='space-y-4'>
+    <p>仕事では、DX,SX,AI推進、、、。　なんかそれっぽいこと言ってますね。まあ全然カッコいいことはやってません。社内にAI活用を普及したり、既存の業務システムの改良をしたり、その活用例を外部に広げたりしてます。</p>
+  </div>
+
+  <h2 id='current-focus'>Current Focus</h2>
+  <div class='space-y-4'>
+    <p>インフラ周り全然わからなくて、できるようになりたいとは思ってるけど、何から手を付けていいのやら。。</p>
+    <p>最近は英語の勉強を頑張ってます。仕事で海外のメンバーとMTGするときに、流暢に会話できるようになりたいなあ。結構リアルタイム翻訳が発達してきてて、基本はみんなそれを使っているんだけど、やっぱり話せるとカッコいいよね。</p>
+  </div>
 
   {/* env */}
   <h2 id='env'>env</h2>
