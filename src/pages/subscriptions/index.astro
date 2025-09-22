@@ -22,26 +22,31 @@ const subscriptionCategories: SubscriptionCategory[] = [
       {
         name: 'YouTube Premium',
         status: '動画',
+        price: '月額1,280円',
         description: '広告なし視聴とバックグラウンド再生で情報収集をしやすくする。'
       },
       {
         name: 'Spotify Premium',
         status: '音楽',
+        price: '月額980円',
         description: 'クラブミュージックの新譜チェックやプレイリスト管理用。'
       },
       {
         name: 'Apple Music',
         status: '音楽',
+        price: '月額1,080円',
         description: 'ロスレスや空間オーディオの試聴、新譜掘りのサブチャンネル。'
       },
       {
         name: 'dアニメストア',
         status: 'アニメ',
+        price: '月額550円',
         description: 'アーカイブの振り返りと気になる作品の週次ウォッチ。'
       },
       {
         name: 'Netflix Standard',
         status: '動画',
+        price: '月額1,490円',
         description: '長編ドラマや映画、ドキュメンタリーの視聴に利用。'
       }
     ]
@@ -52,16 +57,25 @@ const subscriptionCategories: SubscriptionCategory[] = [
       {
         name: 'X Premium',
         status: 'SNS',
+        price: '月額980円',
         description: '長文投稿やブックマーク整理、アナリティクス確認に使用。'
+      },
+      {
+        name: 'Twilog プレミアム',
+        status: 'SNS',
+        price: '月額500円',
+        description: '投稿ログの保存枠拡張と検索機能強化のために利用。'
       },
       {
         name: 'Discord Nitro',
         status: 'コミュニティ',
+        price: '月額810円',
         description: '所属サーバのカスタム絵文字・画質向上とブースト確保。'
       },
       {
         name: 'VRChat Plus',
         status: 'コミュニティ',
+        price: '月額990円',
         description: 'アバターアップロード枠やワールド検索強化のために契約。'
       }
     ]
@@ -72,27 +86,32 @@ const subscriptionCategories: SubscriptionCategory[] = [
       {
         name: 'ChatGPT Plus',
         status: 'AI 支援',
-        description: '要件整理や文章校正、英語でのドラフト作成に活用。'
+        price: '月額約3,000円',
+        description: '要件整理や文章校正、英語でのドラフト作成に活用。為替は$20を基準に算出。'
       },
       {
         name: 'Google AI Pro',
         status: 'AI 支援',
-        description: 'Gemini のマルチモーダル検証と社内提案資料の試作に利用。'
+        price: '月額2,900円',
+        description: 'Gemini のマルチモーダル検証と社内提案資料の試作に利用。Google One AI Premium内のプラン。'
       },
       {
         name: 'GitHub Pro',
         status: '開発',
+        price: '月額約600円',
         description: 'プライベートリポジトリや Copilot 連携を維持するための契約。'
       },
       {
         name: 'freee 会計 スタンダード',
         status: '会計',
+        price: '月額2,980円',
         description: '個人事業主の経理処理、請求書発行、確定申告の管理に使用。'
       },
       {
         name: 'shiyui.dev ドメイン',
         status: 'インフラ',
-        description: 'ポートフォリオとメール用に維持している独自ドメイン。'
+        price: '月額約150円',
+        description: 'ポートフォリオとメール用に維持している独自ドメイン。年額約1,800円で、$12.18換算のCloudflare Registrar契約。'
       }
     ]
   },
@@ -102,11 +121,13 @@ const subscriptionCategories: SubscriptionCategory[] = [
       {
         name: 'Uber One',
         status: 'フード / 配送',
+        price: '月額500円',
         description: '配送料優遇とリワードで外出時の食事を安定運用。'
       },
       {
         name: 'Amazon Prime',
         status: '配送 / 動画',
+        price: '月額600円',
         description: '配送の定額化に加え、Prime Video・Prime Music の補助用途。'
       }
     ]
@@ -128,6 +149,9 @@ const headings = subscriptionCategories.map((category) => ({
 
 <PageLayout title='Subscriptions' {headings}>
   <div class='mt-4 flex flex-col gap-10'>
+    <p class='text-sm text-muted-foreground'>
+      現在、しゆいは月額合計で約19,390円をサブスクリプションに充てています（為替換算を含む概算）。
+    </p>
     {subscriptionCategories.map((category) => {
       const slug = toSlug(category.label)
       return (
@@ -136,9 +160,9 @@ const headings = subscriptionCategories.map((category) => ({
           <div class='flex flex-col gap-4'>
             {category.items.map((item) => (
               <article class='rounded-lg border border-border/50 bg-muted/10 px-4 py-3 shadow-sm'>
-                <div class='flex flex-col gap-1.5 sm:flex-row sm:items-center sm:justify-between'>
+                <div class='flex flex-col gap-1.5 sm:grid sm:grid-cols-[1fr_auto] sm:items-center sm:gap-4'>
                   <h3 class='m-0 text-sm font-semibold leading-snug text-foreground'>{item.name}</h3>
-                  <div class='flex flex-wrap gap-1.5 text-[0.65rem] uppercase tracking-wide text-muted-foreground'>
+                  <div class='flex flex-wrap gap-1.5 text-[0.65rem] uppercase tracking-wide text-muted-foreground sm:justify-end sm:text-right'>
                     {item.status && (
                       <span class='rounded-full border border-border/40 bg-background/60 px-2 py-0.5'>{item.status}</span>
                     )}
