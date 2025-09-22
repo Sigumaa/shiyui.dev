@@ -20,6 +20,11 @@ type CareerTimelineEvent = {
   variant?: 'freelance' | 'contract' | 'fulltime'
 }
 
+type ProfileStatus = {
+  title: string
+  icon: 'location' | 'computer' | 'bulb' | 'document' | 'github'
+}
+
 const languages = ['Go', 'Python', 'Rust', 'C++', 'Dart', 'CMake', 'TypeScript', 'HTML']
 const frontend = ['Astro', 'TypeScript']
 const backend = ['Go', 'Rust']
@@ -27,6 +32,17 @@ const backend = ['Go', 'Rust']
 const MAX_POSTS = 10
 const allPosts = await getBlogCollection()
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
+
+const statusLabelClass =
+  'rounded-full border border-border/60 bg-muted/30 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur gap-x-1.5'
+
+const profileStatuses: ProfileStatus[] = [
+  { title: 'Yokohama, Japan', icon: 'location' },
+  { title: 'Corporate-IT Engineer', icon: 'computer' },
+  { title: 'DX / SX / AI 推進', icon: 'bulb' },
+  { title: 'Freelance Web Engineer', icon: 'document' },
+  { title: 'Go Lover', icon: 'github' }
+]
 
 const jobHistory: CareerTimelineEvent[] = [
   {
@@ -79,10 +95,12 @@ const eventHistory: CareerTimelineEvent[] = [
 
       <div class='flex flex-col items-center gap-y-4'>
         <h1 class='text-3xl font-bold'>{config.author}</h1>
-        <div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
-          <Label title='Japan'>
-            <Icon name='location' class='size-5' slot='icon' />
-          </Label>
+        <div class='flex flex-wrap justify-center gap-2'>
+          {profileStatuses.map((status) => (
+            <Label title={status.title} class={statusLabelClass}>
+              <Icon name={status.icon} class='size-4 text-primary' slot='icon' />
+            </Label>
+          ))}
         </div>
       </div>
 
