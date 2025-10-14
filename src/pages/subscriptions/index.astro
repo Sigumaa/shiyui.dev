@@ -69,13 +69,13 @@ const subscriptionCategories: SubscriptionCategory[] = [
       {
         name: 'Discord Nitro',
         status: 'コミュニティ',
-        price: '月額810円',
+        price: '月額1,050円',
         description: '所属サーバのカスタム絵文字・画質向上とブースト確保。'
       },
       {
         name: 'VRChat Plus',
         status: 'コミュニティ',
-        price: '月額990円',
+        price: '月額1,613円',
         description: 'アバターアップロード枠やワールド検索強化のために契約。'
       }
     ]
@@ -150,7 +150,7 @@ const headings = subscriptionCategories.map((category) => ({
 <PageLayout title='Subscriptions' {headings}>
   <div class='mt-4 flex flex-col gap-10'>
     <p class='text-sm text-muted-foreground'>
-      現在、しゆいは月額合計で約19,390円をサブスクリプションに充てています（為替換算を含む概算）。
+      現在、しゆいは月額合計で約20,250円をサブスクリプションに充てています（為替換算を含む概算）。
     </p>
     {subscriptionCategories.map((category) => {
       const slug = toSlug(category.label)
