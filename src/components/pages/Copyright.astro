@@ -22,6 +22,7 @@ const dateFormat = new Intl.DateTimeFormat(
   config.locale.dateLocale,
   config.locale.dateOptions as Intl.DateTimeFormatOptions
 )
+const shareList = config.content.share ?? []
 
 const getFormattedDate = (date: string | number | Date, options?: Intl.DateTimeFormatOptions) => {
   if (typeof options !== 'undefined') {
@@ -102,7 +103,7 @@ const shares = {
         <Icon class='size-5' name='qrcode' />
       </button>
       {
-        config.content.share.map((share) => (
+        shareList.map((share) => (
           <a
             href={shares[share].link}
             target='_blank'
@@ -129,7 +130,8 @@ const shares = {
 </style>
 
 <script>
-  const showToast = (detail) => document.dispatchEvent(new CustomEvent('toast', { detail }))
+  const showToast = (detail: { message: string }) =>
+    document.dispatchEvent(new CustomEvent('toast', { detail }))
 
   // Copy link
   const copyLink = document.getElementById('copy-link')
